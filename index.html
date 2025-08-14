@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Info</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="gtex_kz" />
+  <meta property="og:description" content="Information" />
+  <meta property="og:image" content="https://gtexkz.github.io/assets/avatar.jpg" />
+  <meta property="og:url" content="https://gtexkz.github.io" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="https://gtexkz.github.io/assets/favicon.png" />
+
+  <style>
+    body {
+      font-family: "Quicksand", sans-serif;
+      margin: 0;
+      text-align: center;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 70px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: #ddd;
+    }
+
+    p {
+      color: #ccc;
+    }
+
+    a {
+      color: #4da8da;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: silver;
+      transform: scale(1.05);
+    }
+
+    #discord {
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    #discord:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+        width: 90%;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+  <div id="bg-container"></div>
+
+  <div class="container">
+    <img src="./assets/avatar.jpg" alt="Avatar" class="avatar" />
+    <h1>GTEX</h1>
+    <p id="discord"><i class="fab fa-discord"></i> Discord: gtex_kz</p>
+    <p><a href="https://github.com/gtexkz" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+    <p><a href="https://steamcommunity.com/id/gtex_kz" target="_blank"><i class="fab fa-steam"></i> Steam</a></p>
+    <p><a href="https://www.tiktok.com/@gtex_kz" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></p>
+    <a href="aboutme.html" class="button">Next page</a>
+  </div>
+
+
+  <script>
+    const video = document.createElement("video");
+    video.id = "bg-video";
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    const source = document.createElement("source");
+    source.src = "./assets/background.mp4";
+    source.type = "video/mp4";
+
+    video.appendChild(source);
+    document.getElementById("bg-container").appendChild(video);
+
+    document.getElementById("discord").addEventListener("click", () => {
+      navigator.clipboard.writeText("gtex_kz");
+      alert("Discord скопирован!");
+    });
+  </script>
+</body>
+</html>
